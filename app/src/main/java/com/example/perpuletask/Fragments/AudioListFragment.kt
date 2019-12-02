@@ -16,7 +16,7 @@ import com.example.perpuletask.Fragments.Adapters.AudioListAdapter
 import com.example.perpuletask.MainActivity
 import com.example.perpuletask.R
 import com.example.perpuletask.Service.DownloadService
-import com.example.perpuletask.Service.DownloadService.getVideoFilePath
+import com.example.perpuletask.Service.DownloadService.Companion.getVideoFilePath
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.audio_list_fragment.*
@@ -52,7 +52,7 @@ class AudioListFragment : BaseFragment<AudioListViewModel>() {
             override fun onItemClick(audioModel: AudioModel?) {
                 activity?.viewpager!!.currentItem = 1
                 (activity as MainActivity )
-                    .bus()?.send(audioModel)
+                    .bus()?.send(audioModel as Any)
             }
         })
     }
